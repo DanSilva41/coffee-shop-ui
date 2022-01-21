@@ -1,0 +1,27 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@layer utilities {
+    .overlay {
+        background: rgba(0, 0, 0, 0.4);
+    }
+
+    .uppercase::after {
+        position: absolute;
+        content: '';
+        background: #d43031;
+        height: 2px;
+        width: 70px;
+        margin-left: -35px;
+        left: 50%;
+    }
+}
+
+@media (max-width: 300px) {
+    #site-title {
+        font-size: 6em !important;
+    }
+}
