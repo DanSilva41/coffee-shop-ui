@@ -15,11 +15,6 @@ export const NavbarsConfig = {
     router: 'founder',
     isBottom: false,
   },
-  contact: {
-    title: 'Contato',
-    router: 'contact',
-    isBottom: false,
-  },
   order: {
     title: 'Encomende agora',
     router:
@@ -43,7 +38,6 @@ export const AppConfig = {
     NavbarsConfig.menu,
     NavbarsConfig.about,
     NavbarsConfig.founder,
-    NavbarsConfig.contact,
     NavbarsConfig.order,
   ],
 };
