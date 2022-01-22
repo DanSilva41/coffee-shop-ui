@@ -31,7 +31,7 @@ export const NavbarsConfig = {
 export const AppConfig = {
   site_name: `At Jhully's`,
   title: `At Jhully's`,
-  description: 'Starter code for your Nextjs Boilerplate with Tailwind CSS',
+  description: 'Primeiro cheesecake e crossaint de Planaltina',
   locale: 'pt-BR',
   socials: {
     instagram: {
