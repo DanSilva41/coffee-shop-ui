@@ -9,8 +9,6 @@ import { Logo } from './Logo';
 
 const Footer = () => {
   const { navbars } = AppConfig;
-  const styleForNormalNavbar: string = 'hover:text-white hover:bg-pink-100';
-  const styleForButtonNavbar: string = 'hover:bg-gray-500 bg-pink-300';
 
   return (
     <Background color="bg-black">
@@ -19,7 +17,7 @@ const Footer = () => {
           logo={<Logo withTitle />}
           iconList={
             <>
-              <Link href={AppConfig.socials.instagram}>
+              <Link href={AppConfig.socials.instagram.main}>
                 <a target="_blank">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -33,26 +31,43 @@ const Footer = () => {
                   </svg>
                 </a>
               </Link>
+              <Link href={AppConfig.socials.instagram.main}>
+                <a target="_blank">
+                  <span className="-mt-0.5 -ml-2">Seguir</span>
+                </a>
+              </Link>
             </>
           }
         >
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              {navbars.map((item, i) => (
-                <LinkScroll
-                  key={i}
-                  activeClass={item.title}
-                  to={item.router}
-                  smooth={true}
-                  offset={50}
-                  duration={500}
-                  className={`cursor-pointer text-white  px-3 py-2 rounded-md text-md font-semibold ${
-                    item.isBottom ? styleForButtonNavbar : styleForNormalNavbar
-                  }`}
-                >
-                  {item.title}
-                </LinkScroll>
-              ))}
+              {navbars.map((item, i) => {
+                if (item.isBottom) {
+                  return (
+                    <Link key={i} href={item.router}>
+                      <a
+                        target="_blank"
+                        className="cursor-pointer hover:bg-gray-500 bg-pink-300 text-white  px-3 py-2 rounded-md text-md font-semibold"
+                      >
+                        {item.title}
+                      </a>
+                    </Link>
+                  );
+                }
+                return (
+                  <LinkScroll
+                    key={i}
+                    activeClass={item.title}
+                    to={item.router}
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                    className="cursor-pointer hover:text-white hover:bg-pink-100 text-white  px-3 py-2 rounded-md text-md font-semibold"
+                  >
+                    {item.title}
+                  </LinkScroll>
+                );
+              })}
             </div>
           </div>
         </CenteredFooter>

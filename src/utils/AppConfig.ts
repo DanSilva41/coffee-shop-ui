@@ -22,7 +22,8 @@ export const NavbarsConfig = {
   },
   order: {
     title: 'Encomende agora',
-    router: 'order',
+    router:
+      'https://api.whatsapp.com/send?phone=5561994481561&text=Ol%C3%A1,%20quero%20fazer%20uma%20encomenda',
     isBottom: true,
   },
 };
@@ -33,7 +34,10 @@ export const AppConfig = {
   description: 'Starter code for your Nextjs Boilerplate with Tailwind CSS',
   locale: 'pt-BR',
   socials: {
-    instagram: 'url/instagram',
+    instagram: {
+      main: 'https://instagram.com/atjhullys',
+      alt: 'https://instagram.com/jhullygleicinay',
+    },
   },
   navbars: [
     NavbarsConfig.menu,

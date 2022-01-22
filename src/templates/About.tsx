@@ -11,10 +11,27 @@ const About = (props: IAboutProps) => (
   <Section id={props.id} title={props.title} maxLimited="max-w-screen-xl">
     <Background color="bg-gray-100">
       <AboutDescription
-        title="Sonho real 💭"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum, nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim."
-        image="/assets/images/feature.svg"
-        imageAlt="First feature alt text"
+        title="Sonho real 💤💭"
+        description={
+          <>
+            <p>
+              A At Jhully&apos;s surgiu de um sonho,{' '}
+              <strong>literalmente</strong>! <br />A fundadora estava dormindo e
+              sonhou que fazia algumas entregas e quando acordou pensou:
+              <em>&quot;porque não?&quot;</em>, esse sonho deixou de ser
+              simplesmente um sonho adormecido, e passou a ser um sonho durante
+              seus dias. Dias pensando em como seria o cardápio, cada receita,
+              como vender seu produto, na vastidão e desafios do
+              empreendedorismo. <br />E então aqui está o resultado de muita
+              pesquisa e dedicação para oferecer a você não só sobremesas e
+              massas deliciosas mas uma nova experiência, leve e única!
+              <br />
+              <br /> Seja bem-vindo e aproveite.
+            </p>
+          </>
+        }
+        image="/assets/images/about.svg"
+        imageAlt="Vamos lá!"
       />
     </Background>
   </Section>

@@ -8,7 +8,7 @@ type IBackgroundImageProps = {
 
 const BackgroundImage = (props: IBackgroundImageProps) => (
   <div className={props.image}>
-    <div className="lg:overlay">{props.children}</div>
+    <div className="overlay">{props.children}</div>
   </div>
 );
 

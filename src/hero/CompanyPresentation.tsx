@@ -10,7 +10,7 @@ const CompanyPresentation = (props: ICompanyPresentationProps) => (
   <header className="text-center">
     <h1
       id="site-title"
-      className="font-rochester text-9xl font-normal whitespace-pre-line leading-hero"
+      className="font-rochester text-8xl sm:text-11xl font-normal whitespace-pre-line leading-hero -mt-12 mb-20"
     >
       {props.title}
     </h1>

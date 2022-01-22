@@ -16,8 +16,8 @@ const Navbar = (props: INavbarProps) => {
   const { navbars } = AppConfig;
   const styleForNormalNavbar: string = 'hover:text-white hover:bg-pink-100';
   const styleForNormalNavbarMobile: string = `${styleForNormalNavbar} text-black`;
-  const styleForButtonNavbar: string = 'hover:bg-gray-500 bg-pink-300';
-  const styleForButtonNavbarMobile: string = `${styleForButtonNavbar} text-white`;
+  const styleForButtonNavbar: string =
+    'hover:bg-gray-500 bg-pink-300 text-white';
 
   return (
     <div>
@@ -32,23 +32,33 @@ const Navbar = (props: INavbarProps) => {
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
-                  {navbars.map((item, i) => (
-                    <LinkScroll
-                      key={i}
-                      activeClass={item.title}
-                      to={item.router}
-                      smooth={true}
-                      offset={50}
-                      duration={500}
-                      className={`cursor-pointer text-white  px-3 py-2 rounded-md text-md font-semibold ${
-                        item.isBottom
-                          ? styleForButtonNavbar
-                          : styleForNormalNavbar
-                      }`}
-                    >
-                      {item.title}
-                    </LinkScroll>
-                  ))}
+                  {navbars.map((item, i) => {
+                    if (item.isBottom) {
+                      return (
+                        <Link key={i} href={item.router}>
+                          <a
+                            target="_blank"
+                            className={`cursor-pointer px-3 py-2 rounded-md text-md font-semibold ${styleForButtonNavbar}`}
+                          >
+                            {item.title}
+                          </a>
+                        </Link>
+                      );
+                    }
+                    return (
+                      <LinkScroll
+                        key={i}
+                        activeClass={item.title}
+                        to={item.router}
+                        smooth={true}
+                        offset={50}
+                        duration={500}
+                        className={`cursor-pointer text-white  px-3 py-2 rounded-md text-md font-semibold ${styleForNormalNavbar}`}
+                      >
+                        {item.title}
+                      </LinkScroll>
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -114,23 +124,34 @@ const Navbar = (props: INavbarProps) => {
                 ref={ref}
                 className="bg-white px-2 pt-2 pb-3 space-y-1 sm:px-3"
               >
-                {navbars.map((item, i) => (
-                  <LinkScroll
-                    key={i}
-                    activeClass={item.title.toLowerCase()}
-                    to={item.router}
-                    smooth={true}
-                    offset={50}
-                    duration={500}
-                    className={`cursor-pointer block px-3 py-2 rounded-md text-base font-medium ${
-                      item.isBottom
-                        ? styleForButtonNavbarMobile
-                        : styleForNormalNavbarMobile
-                    }`}
-                  >
-                    {item.title}
-                  </LinkScroll>
-                ))}
+                {navbars.map((item, i) => {
+                  if (item.isBottom) {
+                    return (
+                      <Link key={i} href={item.router}>
+                        <a
+                          target="_blank"
+                          className={`cursor-pointer block px-3 py-2 rounded-md text-base font-medium ${styleForButtonNavbar}`}
+                        >
+                          {item.title}
+                        </a>
+                      </Link>
+                    );
+                  }
+                  return (
+                    <LinkScroll
+                      key={i}
+                      activeClass={item.title.toLowerCase()}
+                      to={item.router}
+                      smooth={true}
+                      offset={50}
+                      duration={500}
+                      onClick={() => setIsOpen(!isOpen)}
+                      className={`cursor-pointer block px-3 py-2 rounded-md text-base font-medium ${styleForNormalNavbarMobile}`}
+                    >
+                      {item.title}
+                    </LinkScroll>
+                  );
+                })}
               </div>
             </div>
           )}

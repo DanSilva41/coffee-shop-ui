@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -5,20 +7,24 @@ import { AppConfig } from '../utils/AppConfig';
 
 type IFounderProps = {
   title: string;
-  description: string;
+  description?: ReactNode;
   name: string;
   image: string;
 };
 
 const FounderBanner = (props: IFounderProps) => (
-  <div className="text-center flex flex-col p-2 sm:text-left sm:flex-row sm:items-center sm:justify-between sm:p-12 bg-gray-800 rounded-md">
-    <div className="text-center">
-      <div className="text-2xl font-semibold">
+  <div className="text-center flex flex-col p-2 sm:text-left sm:flex-row sm:items-center sm:justify-between sm:p-12 bg-gray-800 rounded-md font-raleway">
+    <div className="text-center font-raleway">
+      <div className="text-2xl font-normal sm:-mt-12">
         <div className="text-white">{props.title}</div>
       </div>
-      <div className="text-lg font-semibold">
-        <div className="text-primary-500">{props.description}</div>
-      </div>
+      {props.description ? (
+        <div className="text-base font-semibold mt-4 sm:mt-8">
+          <div className="text-gray-500">{props.description}</div>
+        </div>
+      ) : (
+        ''
+      )}
     </div>
     <div className="whitespace-no-wrap mt-3 sm:mt-0 sm:ml-2">
       <Image
@@ -29,7 +35,7 @@ const FounderBanner = (props: IFounderProps) => (
         className="rounded-full"
       />
       <div className="text-2xl font-semibold text-center">
-        <Link href={AppConfig.socials.instagram}>
+        <Link href={AppConfig.socials.instagram.alt}>
           <a target="_blank" title="Saiba mais sobre ela">
             <div className="text-pink-300">{props.name}</div>
           </a>

@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 import className from 'classnames';
 import Image from 'next/image';
 
@@ -5,7 +7,7 @@ type IProductRowProps = {
   title: string;
   price: string;
   priceCompletion: string;
-  description: string;
+  description: ReactNode;
   image: string;
   imageAlt: string;
   reverse?: boolean;
@@ -24,10 +26,12 @@ const ProductRow = (props: IProductRowProps) => {
   return (
     <div className={verticalFeatureClass}>
       <div className="w-full">
-        <h3 className="text-3xl mb-2 text-gray-900 font-semibold">
+        <h3 className="text-3xl mb-2 text-gray-900 font-light font-raleway">
           {props.title}
         </h3>
-        <span className="text-xl -mt-2">R$ {props.price}</span>
+        <span className="text-xl -mt-2">
+          <strong>R$ {props.price}</strong>
+        </span>
         <span className="text-sm">{` ${props.priceCompletion}`}</span>
       </div>
       <div className="w-full">
@@ -38,8 +42,8 @@ const ProductRow = (props: IProductRowProps) => {
           height="180"
         />
       </div>
-      <div className="w-full">
-        <div className="text-xl leading-9">{props.description}</div>
+      <div className="w-full px-4">
+        <div className="text-lg leading-7">{props.description}</div>
       </div>
     </div>
   );

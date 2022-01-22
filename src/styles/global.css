@@ -19,7 +19,6 @@
         left: 50%;
     }
 }
-
 @media (max-width: 300px) {
     #site-title {
         font-size: 6em !important;
