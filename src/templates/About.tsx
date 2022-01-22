@@ -2,8 +2,13 @@ import { Background } from '../background/Background';
 import { AboutDescription } from '../feature/AboutDescription';
 import { Section } from '../layout/Section';
 
-const About = () => (
-  <Section id="about" title="Sobre nós" maxLimited="max-w-screen-xl">
+type IAboutProps = {
+  id: string;
+  title: string;
+};
+
+const About = (props: IAboutProps) => (
+  <Section id={props.id} title={props.title} maxLimited="max-w-screen-xl">
     <Background color="bg-gray-100">
       <AboutDescription
         title="Sonho real 💭"

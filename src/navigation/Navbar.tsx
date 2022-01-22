@@ -4,12 +4,20 @@ import { Transition } from '@headlessui/react';
 import Link from 'next/link';
 import { Link as LinkScroll } from 'react-scroll';
 
+import { AppConfig } from '../utils/AppConfig';
+
 type INavbarProps = {
   logo: ReactNode;
 };
 
 const Navbar = (props: INavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { navbars } = AppConfig;
+  const styleForNormalNavbar: string = 'hover:text-white hover:bg-pink-100';
+  const styleForNormalNavbarMobile: string = `${styleForNormalNavbar} text-black`;
+  const styleForButtonNavbar: string = 'hover:bg-gray-500 bg-pink-300';
+  const styleForButtonNavbarMobile: string = `${styleForButtonNavbar} text-white`;
 
   return (
     <div>
@@ -24,58 +32,23 @@ const Navbar = (props: INavbarProps) => {
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
-                  <LinkScroll
-                    activeClass="Menu"
-                    to="menu"
-                    smooth={true}
-                    offset={50}
-                    duration={500}
-                    className="cursor-pointer hover:bg-pink-100 text-white hover:text-white px-3 py-2 rounded-md text-md font-semibold"
-                  >
-                    Menu
-                  </LinkScroll>
-                  <LinkScroll
-                    activeClass="about"
-                    to="about"
-                    smooth={true}
-                    offset={50}
-                    duration={500}
-                    className="cursor-pointer hover:bg-pink-100 text-white hover:text-white px-3 py-2 rounded-md text-md font-semibold"
-                  >
-                    Sobre
-                  </LinkScroll>
-                  <LinkScroll
-                    activeClass="chef"
-                    to="chef"
-                    smooth={true}
-                    offset={50}
-                    duration={500}
-                    className="cursor-pointer hover:bg-pink-100 text-white hover:text-white px-3 py-2 rounded-md text-md font-semibold"
-                  >
-                    Chef
-                  </LinkScroll>
-
-                  <LinkScroll
-                    activeClass="contact"
-                    to="contact"
-                    smooth={true}
-                    offset={50}
-                    duration={500}
-                    className="cursor-pointer hover:bg-pink-100 text-white hover:text-white px-3 py-2 rounded-md text-md font-semibold"
-                  >
-                    Contato
-                  </LinkScroll>
-
-                  <LinkScroll
-                    activeClass="order"
-                    to="order"
-                    smooth={true}
-                    offset={50}
-                    duration={500}
-                    className="cursor-pointer bg-pink-300 text-white px-3 py-2 rounded-md text-md font-semibold hover:bg-gray-500"
-                  >
-                    Encomende agora
-                  </LinkScroll>
+                  {navbars.map((item, i) => (
+                    <LinkScroll
+                      key={i}
+                      activeClass={item.title}
+                      to={item.router}
+                      smooth={true}
+                      offset={50}
+                      duration={500}
+                      className={`cursor-pointer text-white  px-3 py-2 rounded-md text-md font-semibold ${
+                        item.isBottom
+                          ? styleForButtonNavbar
+                          : styleForNormalNavbar
+                      }`}
+                    >
+                      {item.title}
+                    </LinkScroll>
+                  ))}
                 </div>
               </div>
             </div>
@@ -141,52 +114,23 @@ const Navbar = (props: INavbarProps) => {
                 ref={ref}
                 className="bg-white px-2 pt-2 pb-3 space-y-1 sm:px-3"
               >
-                <LinkScroll
-                  href="#menu"
-                  activeClass="menu"
-                  to="menu"
-                  smooth={true}
-                  offset={50}
-                  duration={500}
-                  className="cursor-pointer hover:bg-pink-300 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Menu
-                </LinkScroll>
-                <LinkScroll
-                  href="#about"
-                  activeClass="about"
-                  to="about"
-                  smooth={true}
-                  offset={50}
-                  duration={500}
-                  className="cursor-pointer hover:bg-pink-300 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Sobre
-                </LinkScroll>
-
-                <LinkScroll
-                  href="#chef"
-                  activeClass="chef"
-                  to="chef"
-                  smooth={true}
-                  offset={50}
-                  duration={500}
-                  className="cursor-pointer hover:bg-pink-300 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Chef
-                </LinkScroll>
-
-                <LinkScroll
-                  href="#contact"
-                  activeClass="worcontactk"
-                  to="contact"
-                  smooth={true}
-                  offset={50}
-                  duration={500}
-                  className="cursor-pointer hover:bg-pink-300 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Contato
-                </LinkScroll>
+                {navbars.map((item, i) => (
+                  <LinkScroll
+                    key={i}
+                    activeClass={item.title.toLowerCase()}
+                    to={item.router}
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                    className={`cursor-pointer block px-3 py-2 rounded-md text-base font-medium ${
+                      item.isBottom
+                        ? styleForButtonNavbarMobile
+                        : styleForNormalNavbarMobile
+                    }`}
+                  >
+                    {item.title}
+                  </LinkScroll>
+                ))}
               </div>
             </div>
           )}

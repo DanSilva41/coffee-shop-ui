@@ -23,7 +23,11 @@ const Logo = (props: ILogoProps) => {
           height="50"
           className="rounded-full"
         />
-        {props.withTitle ? <span>{AppConfig.site_name}</span> : ''}
+        {props.withTitle ? (
+          <span className="ml-2">{AppConfig.site_name}</span>
+        ) : (
+          ''
+        )}
       </span>
     </>
   );

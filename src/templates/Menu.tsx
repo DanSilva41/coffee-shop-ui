@@ -1,10 +1,15 @@
 import { ProductRow } from '../feature/ProductRow';
 import { Section } from '../layout/Section';
 
-const Menu = () => (
+type IMenuProps = {
+  id: string;
+  title: string;
+};
+
+const Menu = (props: IMenuProps) => (
   <Section
-    id="menu"
-    title="Menu"
+    id={props.id}
+    title={props.title}
     description="Alguma descrição"
     maxLimited="max-w-screen-xl"
   >
