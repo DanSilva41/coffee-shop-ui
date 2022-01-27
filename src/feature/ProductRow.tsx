@@ -6,7 +6,8 @@ import Image from 'next/image';
 type IProductRowProps = {
   title: string;
   price: string;
-  priceCompletion: string;
+  priceCompletion?: string;
+  moreDescription?: ReactNode;
   description: ReactNode;
   image: string;
   imageAlt: string;
@@ -20,7 +21,8 @@ const ProductRow = (props: IProductRowProps) => {
     'md:w-1/2',
     'lg:w-1/3',
     'xl:w-1/3',
-    'text-center'
+    'text-center',
+    'pt-6'
   );
 
   return (
@@ -32,7 +34,16 @@ const ProductRow = (props: IProductRowProps) => {
         <span className="text-xl -mt-2">
           <strong>R$ {props.price}</strong>
         </span>
-        <span className="text-sm">{` ${props.priceCompletion}`}</span>
+        {props.priceCompletion ? (
+          <span className="text-base">{` ${props.priceCompletion}`}</span>
+        ) : (
+          ''
+        )}
+        {props.moreDescription ? (
+          <span className="text-lg"> {props.moreDescription}</span>
+        ) : (
+          ''
+        )}
       </div>
       <div className="w-full">
         <Image
