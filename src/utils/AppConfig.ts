@@ -26,7 +26,7 @@ export const NavbarsConfig = {
 export const AppConfig = {
   site_name: `At Jhully's`,
   title: `At Jhully's`,
-  description: 'Primeiro cheesecake e crossaint de Planaltina',
+  description: 'Primeiro cheesecake e croissant de Planaltina',
   locale: 'pt-BR',
   socials: {
     instagram: {
