@@ -45,7 +45,7 @@ const Menu = (props: IMenuProps) => (
       />
       <ProductRow
         title="Croissant"
-        price="8"
+        price="7"
         priceCompletion="(unidade)"
         description={
           <>
@@ -78,7 +78,7 @@ const Menu = (props: IMenuProps) => (
 
       <ProductRow
         title="Croissants Doces"
-        price="12"
+        price="10"
         priceCompletion="(unidade)"
         description={
           <>
