@@ -45,7 +45,7 @@ const Menu = (props: IMenuProps) => (
       />
       <ProductRow
         title="Croissant"
-        price="8"
+        price="8."
         priceCompletion="(unidade)"
         description={
           <>
