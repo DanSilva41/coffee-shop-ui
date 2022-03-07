@@ -18,10 +18,10 @@ const Menu = (props: IMenuProps) => (
             Com uma base crocante de biscoito, o{' '}
             <strong>Tradicional Cheesecake</strong> surpreende com a leveza de
             seu cremoso recheio de baunilha.
-            <br /> A cobertura você escolhe:
+            <br /> Opções de cobertura:
             <br />
             <em>
-              geleia de morango; chocolate branco; chocolate ao leite ou sem
+              geleia de morango caseira; goiabada; chocolate branco; chocolate ao leite ou sem
               cobertura para acompanhar o seu café.
             </em>
           </>
@@ -69,7 +69,7 @@ const Menu = (props: IMenuProps) => (
             O <strong>Delicioso Sanduíche Natural de Croissant</strong> vai te
             surpreender!
             <br />
-            Recheio de <em>frango, mussarela, presunto, tomate e alface.</em>
+            Recheio: <em>cream cheese, mussarela, presunto, tomate e alface.</em>
           </>
         }
         image="/assets/images/sanduich-croissant.jpg"
@@ -78,7 +78,7 @@ const Menu = (props: IMenuProps) => (
 
       <ProductRow
         title="Croissants Doces"
-        price="12"
+        price="10"
         priceCompletion="(unidade)"
         description={
           <>
