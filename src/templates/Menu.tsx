@@ -11,7 +11,7 @@ const Menu = (props: IMenuProps) => (
     <div className="flex flex-wrap">
       <ProductRow
         title="Cheesecake"
-        price="60"
+        price="70"
         priceCompletion="(inteiro)"
         description={
           <>
@@ -21,8 +21,8 @@ const Menu = (props: IMenuProps) => (
             <br /> Opções de cobertura:
             <br />
             <em>
-              geleia de morango caseira; goiabada; chocolate branco; chocolate ao leite ou sem
-              cobertura para acompanhar o seu café.
+              geleia de morango caseira; goiabada; chocolate branco; chocolate
+              ao leite ou sem cobertura para acompanhar o seu café.
             </em>
           </>
         }
@@ -69,7 +69,8 @@ const Menu = (props: IMenuProps) => (
             O <strong>Delicioso Sanduíche Natural de Croissant</strong> vai te
             surpreender!
             <br />
-            Recheio: <em>cream cheese, mussarela, presunto, tomate e alface.</em>
+            Recheio:{' '}
+            <em>cream cheese, mussarela, presunto, tomate e alface.</em>
           </>
         }
         image="/assets/images/sanduich-croissant.jpg"
